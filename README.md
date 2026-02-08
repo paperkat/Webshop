@@ -2,15 +2,23 @@
 
 ## Overview
 This is a backend proof-of-concept for a simple webshop application built with **Spring Boot 4.0** and **Java 17**.
-The project currently supports basic **user management** functionality, including:
+The project currently supports basic **user and product management** functionality, including:
 
-- Create a new user 
+### User Management
+- Create a new user
 - Get all users
 - Get user by ID
 - Get user by username
 - Delete a user
 
-- Uses H2 in-memory database by default; data is lost on app restart.
+### Product Management
+- Create a new product
+- Get all products
+- Get product by ID
+- Get products by name
+- Delete a product
+
+- Uses H2 in-memory database by default (data is lost on application restart).
 ## Project Structure
 
 ```text
@@ -34,14 +42,13 @@ Webshop/
 
 ```
 ## Current Status
-- ✅ User entity, repository, service, and controller implemented
+- ✅ User entity, repository, service, and controller implemented (service + controller tests added)
 - ✅ Unique username/email enforcement with friendly API error
 - ✅ Basic CRUD endpoints for users
-- ❌ Security is disabled for PoC/testing purposes
-- ❌ Other entities (Cart, CartItem, Product, Order, OrderItem) not yet implemented
+- ✅ Product entity, repository, service, and controller implemented (service + controller tests added)
+- ❌ Other entities (Cart, CartItem, Order, OrderItem) not yet implemented
 
 ## TODO
-- [ ] Implement `Product` entity and related repository/service/controller
 - [ ] Implement `Cart` and `CartItem` functionality
 - [ ] Implement `Order` and `OrderItem` functionality
 - [ ] Add validation and input sanitization
@@ -56,6 +63,13 @@ Webshop/
 3. Run the Spring Boot application
 4. Access API endpoints via `http://localhost:8080/api/users`  
    Example: `GET /api/users` or `POST /api/users` with JSON body
+5. Access Product API via `http://localhost:8080/api/products`  
+   Examples:
+- `GET /api/products`
+- `GET /api/products/{id}`
+- `GET /api/products/name/{name}`
+- `POST /api/products`
+
 
 ## Sample User JSON
 ```json
