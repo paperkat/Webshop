@@ -18,7 +18,7 @@ The project currently supports basic **user and product management** functionali
 - Get products by name
 - Delete a product
 
-- Uses H2 in-memory database by default (data is lost on application restart).
+Uses H2 in-memory database by default (data is lost on application restart).
 ## Project Structure
 
 ```text
@@ -43,9 +43,10 @@ Webshop/
 ```
 ## Current Status
 - ✅ User entity, repository, service, and controller implemented (service + controller tests added)
-- ✅ Unique username/email enforcement with friendly API error
+- ✅ Unique username/email enforcement with friendly API errors
 - ✅ Basic CRUD endpoints for users
 - ✅ Product entity, repository, service, and controller implemented (service + controller tests added)
+- ✅ Spring Security enabled (HTTP Basic, in-memory users, role-based access)
 - ❌ Other entities (Cart, CartItem, Order, OrderItem) not yet implemented
 
 ## TODO
@@ -53,9 +54,8 @@ Webshop/
 - [ ] Implement `Order` and `OrderItem` functionality
 - [ ] Add validation and input sanitization
 - [ ] Add global exception handling (`@ControllerAdvice`)
-- [ ] Add JWT or session-based authentication
 - [ ] Create a frontend (React) to consume these APIs
-- [ ] Add unit and integration tests
+- [ ] Expand test coverage
 
 ## How to Run
 1. Clone the repository
@@ -69,6 +69,33 @@ Webshop/
 - `GET /api/products/{id}`
 - `GET /api/products/name/{name}`
 - `POST /api/products`
+
+## Security
+
+Security is disabled by default for faster development.
+To enable the secure configuration, run the application with the `security` profile enabled:
+
+- --spring.profiles.active=security
+
+This can be set in the **Run / Edit Configurations** dialog in IntelliJ.
+
+### Authentication & Authorization
+
+- HTTP Basic authentication
+- In-memory users (PoC only)
+- Role-based access control:
+   - `GET /api/**` → public
+   - `POST /api/**` → ADMIN only
+   - `DELETE /api/**` → ADMIN only
+
+### Preconfigured Users
+
+| Username | Password | Role  |
+|--------|----------|-------|
+| user   | password | USER  |
+| admin  | password | ADMIN |
+
+
 
 
 ## Sample User JSON
