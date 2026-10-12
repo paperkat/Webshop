@@ -1,6 +1,8 @@
 package com.demo.webshop.entity;
 
 import jakarta.persistence.*;
+
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -11,7 +13,7 @@ public class Product {
 
     private String name;
     private String description;
-    private double price;
+    private BigDecimal price;
     private int stockQuantity;
 
     @OneToMany(mappedBy = "product")
@@ -44,11 +46,11 @@ public class Product {
         this.description = description;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 

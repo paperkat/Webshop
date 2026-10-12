@@ -9,6 +9,8 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import java.math.BigDecimal;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -22,7 +24,7 @@ class ProductControllerTest {
         Product product = new Product();
         product.setName("Product_" + System.currentTimeMillis());
         product.setDescription("Test description");
-        product.setPrice(19.99);
+        product.setPrice(new BigDecimal("19.99"));
         product.setStockQuantity(10);
         return product;
     }

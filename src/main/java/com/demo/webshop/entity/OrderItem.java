@@ -2,6 +2,8 @@ package com.demo.webshop.entity;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
+
 @Entity
 public class OrderItem {
     @Id
@@ -17,7 +19,7 @@ public class OrderItem {
     private Product product;
 
     private int quantity;
-    private double price;
+    private BigDecimal price;
 
     public Long getId() {
         return id;
@@ -51,11 +53,11 @@ public class OrderItem {
         this.quantity = quantity;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 }

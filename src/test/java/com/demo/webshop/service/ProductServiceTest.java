@@ -8,6 +8,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.math.BigDecimal;
 import java.util.Optional;
 import java.util.Arrays;
 import java.util.List;
@@ -33,7 +34,7 @@ class ProductServiceTest {
         product.setId(1L);
         product.setName("Test product");
         product.setDescription("Test description");
-        product.setPrice(9.99);
+        product.setPrice(new BigDecimal("9.99"));
         product.setStockQuantity(10);
         return product;
     }
